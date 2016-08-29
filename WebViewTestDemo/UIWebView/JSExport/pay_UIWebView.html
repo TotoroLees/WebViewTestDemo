@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="description" content="Free Web tutorials">
+<meta name="keywords" content="HTML,CSS,JavaScript">
+<meta content="telephone=no" name="format-detection">
+<title>支付</title>
+<link href="Cbase.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="ftop">
+	<a class="back" onClick="javascript:history.back(-1);">返回</a>
+    <h2>支付订单</h2>
+</div>
+
+<div class="tip">
+	<h2>订单提交成功，只差最后一步支付就可以啦！</h2>
+</div>
+<div class="heji">商品合计<span>20元</span></div>
+
+<ul class="pay_type">
+	<a class="btn" style="margin-top: 30px;" onClick = 'payClick()'>确认支付</a>
+</ul>
+
+<script>
+    function payClick() {
+        var payInfo = JSON.stringify({"order": "订单号", "payType": "支付方式", "userID": "用户ID"});
+           javascript:App.pay(payInfo);
+           
+           App.payInfoUserIDWithUserName("用户ID","用户名字");
+           
+           App.payInfoOrder("订单号","支付方式");
+    }
+
+    function payCallBack(state){
+        alert(state);
+    }
+
+</script>
+
+</body>
+</html>
